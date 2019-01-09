@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" onKeyPressed="#onKeyPressed" vgap="10" xmlns="http://javafx.com/javafx/8.0.141"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Garden">
+    <columnConstraints>
+        <ColumnConstraints/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints/>
+    </rowConstraints>
+    <children>
+        <Pane id="gardenPane" fx:id="gardenPane" prefHeight="489.0" prefWidth="515.0">
+        </Pane>
+    </children>
+</GridPane>
