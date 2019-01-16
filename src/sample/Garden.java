@@ -7,6 +7,10 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 
 public class Garden {
+    private String hunterBee = "Hunter";
+    private String seekerBee = "Seeker";
+    private String playerBee = "Player";
+
     @FXML
     private Pane gardenPane;                // capture the pane we are drawing on from JavaFX
     public static Pane mainPane;
@@ -18,12 +22,19 @@ public class Garden {
         gardenPane.setStyle("-fx-background-color: linear-gradient(to bottom right, derive(goldenrod, 20%), derive(goldenrod, -40%));");
         gardenPane.setFocusTraversable(true); // ensure garden pane will receive keypresses
         //Generate components here:
-        new Bee(Bee.BeeType.Hunter);
-        new Bee(Bee.BeeType.Player);
-        new Bee(Bee.BeeType.Seeker);
+//        new Bee(Bee.BeeType.Hunter);
+//        new Bee(Bee.BeeType.Player);
+//        new Bee(Bee.BeeType.Seeker);
+        Bee pB = new SpeedBee(new PlayerBee(playerBee), playerBee);
+//        new SeekerBee(seekerBee);
+//        new HunterBee(hunterBee);
+//        new SpeedBee(pB, playerBee);
+
         new Flower();
         new Flower();
         new Flower();
+
+
     }
     //Pre load the vector2 value in case GC stress
 

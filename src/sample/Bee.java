@@ -8,40 +8,54 @@ import java.util.Random;
 
 public class Bee extends Species {
 
-    public enum BeeType
-    {
-        Hunter, Player, Seeker
-    }
-    private BeeType beeType;
+//    public enum BeeType
+//    {
+//        Hunter, Player, Seeker
+//    }
+
+//    private BeeType beeType;
+    private String beeType;
     public int energy;
     private double speed;
-    private TickFunc<Bee, Vector2> tickEvent;
+    protected TickFunc<Bee, Vector2> tickEvent;
     final int FULLHP = 50;
     final double ORIGINSPEED  = 0.05;
     final double SLOWSPEED = 0.01;
     private int slowStep = 0;
+    final double SUPERSPEED = 0.2;
     public static ArrayList<Bee> allBees = new ArrayList<>();
-    public Bee(BeeType beeType){
+//    public Bee(BeeType beeType){
+//        this.beeType = beeType;
+//        setEnable(true);
+//        energy = FULLHP;
+//        speed = ORIGINSPEED;
+//        switch (beeType)
+//        {
+//            case Hunter:
+//                tickEvent = (o, c)->o.hunterFunc(c);
+//                break;
+//            case Player:
+//                tickEvent =(o, c)->o.characterFunc(c);
+//                break;
+//            case Seeker:
+//                tickEvent = (o, c) -> o.seekerFunc(c);
+//                break;
+//        }
+//    }
+    public Bee(String beeType){
         this.beeType = beeType;
         setEnable(true);
         energy = FULLHP;
         speed = ORIGINSPEED;
-        switch (beeType)
-        {
-            case Hunter:
-                tickEvent = (o, c)->o.hunterFunc(c);
-                break;
-            case Player:
-                tickEvent =(o, c)->o.characterFunc(c);
-                break;
-            case Seeker:
-                tickEvent = (o, c) -> o.seekerFunc(c);
-                break;
-        }
     }
+
+
 
     @Override
     public void tick(Vector2 value) {
+//        if(beeType.equals("shieldBee")){
+//            speed = ORIGINSPEED;
+//        }
         if(slowStep > 0){
             slowStep--;
             speed = SLOWSPEED;
@@ -53,7 +67,7 @@ public class Bee extends Species {
         energy--;
         position.x = Math.max(Math.min(1, position.x), 0);
         position.y = Math.max(Math.min(1, position.y), 0);
-        System.out.println(energy);
+        System.out.println(beeType + energy);
     }
 
     public void characterFunc(Vector2 value)
@@ -62,7 +76,7 @@ public class Bee extends Species {
         position.y += value.y * speed;
     }
 
-    private boolean seekForFlower()
+    private boolean  seekForFlower()
     {
         double leastDistance = Double.MAX_VALUE;
         Flower targetFlower = null;
@@ -135,18 +149,19 @@ public class Bee extends Species {
 
     @Override
     public void onEnable() {
-        allBees.add(this);
-        switch (beeType) {
-            case Hunter:
-                initImage("file:bee-3.jpg",new Vector2(Math.random() * 0.8 + 0.1, Math.random() * 0.8 + 0.1), 50);
-                break;
-            case Player:
-                initImage("file:bee-1.jpg", new Vector2(0.5, 0.5), 50);
-                break;
-            case Seeker:
-                initImage("file:bee-2.jpg", new Vector2(Math.random() * 0.8 + 0.1, Math.random() * 0.8 + 0.1), 50);
-                break;
-        }
+//        allBees.add(this);
+
+//        switch (beeType) {
+//            case Hunter:
+//                initImage("file:bee-3.jpg",new Vector2(Math.random() * 0.8 + 0.1, Math.random() * 0.8 + 0.1), 50);
+//                break;
+//            case Player:
+//                initImage("file:bee-1.jpg", new Vector2(0.5, 0.5), 50);
+//                break;
+//            case Seeker:
+//                initImage("file:bee-2.jpg", new Vector2(Math.random() * 0.8 + 0.1, Math.random() * 0.8 + 0.1), 50);
+//                break;
+//        }
     }
 
     @Override
