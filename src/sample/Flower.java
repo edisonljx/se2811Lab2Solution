@@ -7,10 +7,11 @@ import java.util.Random;
 
 public class Flower extends Species {
     public int energy;
-    final int FULLENERGY = 10;
+    final int FULLENERGY = 100;
     public static ArrayList<Flower> allFlowers = new ArrayList<>();
     public Flower() {
         setEnable(true);
+        this.energy = FULLENERGY;
     }
     @Override
     public void tick(Vector2 value) {
@@ -25,8 +26,8 @@ public class Flower extends Species {
     public void onCollideWithBee(Bee targetBee){
         if(energy > 0) {
             targetBee.energy++;
-            energy--;
-            if (energy <= 0) {
+            this.energy--;
+            if (this.energy <= 0) {
                 updateImage("file:rose.jpg");
             }
         }else{

@@ -16,7 +16,7 @@ public class Bee extends Species {
 //    private BeeType beeType;
     private String beeType;
     public int energy;
-    private double speed;
+    protected double speed;
     protected TickFunc<Bee, Vector2> tickEvent;
     final int FULLHP = 50;
     final double ORIGINSPEED  = 0.05;
@@ -70,10 +70,10 @@ public class Bee extends Species {
         System.out.println(beeType + energy);
     }
 
-    public void characterFunc(Vector2 value)
+    public void characterFunc(Vector2 value, double speed)
     {
-        position.x += value.x * speed;
-        position.y += value.y * speed;
+        position.x += value.x * (this.speed+speed);
+        position.y += value.y * (this.speed+speed);
     }
 
     private boolean  seekForFlower()

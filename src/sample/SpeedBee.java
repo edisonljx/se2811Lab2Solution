@@ -10,13 +10,15 @@ package sample;
 
 public class SpeedBee extends BeeDecorator {
 
-    private double speed;
+
     private String type;
     public SpeedBee(Bee bee, String beeType){
         super(bee,beeType);
         setEnable(true);
         this.type = beeType;
-        this.speed = SUPERSPEED;
+        super.speed = SUPERSPEED;
+
+        super.tickEvent = (o, c)->characterFunc(c, SUPERSPEED);
     }
 
     @Override

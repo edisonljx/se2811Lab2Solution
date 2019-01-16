@@ -14,7 +14,7 @@ public class PlayerBee extends Bee {
     public PlayerBee(String beeType) {
         super(beeType);
         speed = ORIGINSPEED;
-        tickEvent = (o, c)->characterFunc(c);
+        tickEvent = (o, c)->characterFunc(c, 0.0);
     }
 
     @Override
