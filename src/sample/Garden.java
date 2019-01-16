@@ -25,7 +25,7 @@ public class Garden {
 //        new Bee(Bee.BeeType.Hunter);
 //        new Bee(Bee.BeeType.Player);
 //        new Bee(Bee.BeeType.Seeker);
-        Bee pB = new SpeedBee(new PlayerBee(playerBee), playerBee);
+        Bee pB = new ShieldBee(new PlayerBee(playerBee), playerBee);
 //        new SeekerBee(seekerBee);
 //        new HunterBee(hunterBee);
 //        new SpeedBee(pB, playerBee);

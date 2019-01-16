@@ -9,9 +9,18 @@
 package sample;
 
 public class ShieldBee extends BeeDecorator {
-
+    private String type;
     public ShieldBee(Bee bee, String beeType) {
         super(bee, beeType);
-
+        this.type = beeType;
+        setEnable(true);
     }
+
+    @Override
+    public void onEnable(){
+        if(this.type.equals("Player")){
+            initImage("file:shieldBee.jpg",new Vector2(0.5, 0.5), 50);
+        }
+    }
+
 }
